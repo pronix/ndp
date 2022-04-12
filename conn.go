@@ -206,6 +206,10 @@ func (c *Conn) WriteTo(m Message, cm *ipv6.ControlMessage, dst netip.Addr) error
 	return c.writeRaw(b, cm, dst)
 }
 
+func (c *Conn) WriteRaw(b []byte, cm *ipv6.ControlMessage, dst netip.Addr) error {
+	return c.writeRaw(b, cm, dst)
+}
+
 // writeRaw allows writing raw bytes with a Conn.
 func (c *Conn) writeRaw(b []byte, cm *ipv6.ControlMessage, dst netip.Addr) error {
 	// Set reasonable defaults if control message is nil.
